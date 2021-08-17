@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{% load static %}
+{% load socialaccount %} 
+{% providers_media_js %}
+<style>
+    #socialLogin{
+        border: black 1px solid;
+        width : 250px;
+        margin: auto;
+        border-radius: 10px;
+    }
+    </style>
+<br><br><br><br><br>
+<form  action="{% url 'login'%} " method="post" >
+    <br>
+    <h1 >Login</h1><br>
+    {%csrf_token%}
+    <table>
+    {{form.as_table}}
+    </table>
+    <button  type="submit">로그인</button>
+    
+</form><br><br><br>
+<div id="socialLogin">
+    <a href="{% provider_login_url 'google' %}"> 
+        <img src="{% static '구글로고.png' %}" alt="소셜로그인" height="30">계정으로 로그인
+    </a> 
+    </div>
+<br><br><br><br><br><br><br>
+{%endblock%}

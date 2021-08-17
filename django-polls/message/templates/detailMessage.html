@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{%block content%}
+   
+    {% load static %}
+    <style>
+        #unit{
+            margin:auto;
+           
+           
+        }
+        table,th,tr,td{
+            
+            border:1px solid  rgb(179, 108, 108);
+            padding:10px;
+            border-collapse: collapse;
+        }
+    </style>
+        <br> <br><h1>쪽지</h1> <br> <br>
+       <div id="unit">  
+        <table class="detailTable">
+            
+            <tr><th>받는이</th><td> {{message.to}}</td></tr>
+            <tr><th>보낸이</th> <td>  {{message.writer}} </td></tr>
+            <tr><th>내용</th><td height="200px" width ="200px"> {{message.body}}</textarea></td></tr>
+        </table> 
+      
+        {{message.pub_date}}<br>
+
+
+        <a  href="{% url 'deleteMessage' message.id%}"><button onclick="deleteM()">메세지 삭제</button></a> </div> 
+        <script>
+            function deleteM(){
+                 alert("상대가 받은/보낸 메세지 함에서도 삭제됩니다");
+            }
+            </script>
+        <br> <br> <br> <br>
+        {%endblock%}
+
+       

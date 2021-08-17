@@ -1,0 +1,9 @@
+include LICENSE
+include README.rst
+recursive-include user/templates *
+recursive-include message/templates *
+recursive-include mail/templates *
+recursive-include community/templates *
+
+
+recursive-include polls/static *
